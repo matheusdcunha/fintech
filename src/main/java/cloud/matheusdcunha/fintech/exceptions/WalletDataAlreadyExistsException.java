@@ -2,6 +2,8 @@ package cloud.matheusdcunha.fintech.exceptions;
 
 import org.springframework.http.ProblemDetail;
 
+import java.time.LocalDateTime;
+
 public class WalletDataAlreadyExistsException extends FintechException{
 
     private final String detail;
@@ -17,6 +19,7 @@ public class WalletDataAlreadyExistsException extends FintechException{
 
         pd.setTitle("Wallet data already exists");
         pd.setDetail(this.detail);
+        pd.setProperty("timestamp", LocalDateTime.now());
 
         return pd;
     }
