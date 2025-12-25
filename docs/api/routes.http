@@ -9,5 +9,14 @@ Content-Type: application/json
 }
 
 ###
-@walletId = d9242f6b-bb48-4e0a-83da-c804b4f77a01
+@walletId = 938d642f-4ee2-49b5-b4ae-11cabf6d1806
 DELETE http://localhost:8080/wallets/{{walletId}}
+
+
+###
+POST http://localhost:8080/wallets/{{walletId}}/deposits
+Content-Type: application/json
+
+{
+    "value": "25.12"
+}

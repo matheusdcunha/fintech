@@ -1,7 +1,9 @@
 package cloud.matheusdcunha.fintech.controller;
 
 import cloud.matheusdcunha.fintech.controller.dto.CreateWalletDto;
+import cloud.matheusdcunha.fintech.controller.dto.DepositMoneyDto;
 import cloud.matheusdcunha.fintech.service.WalletService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +38,21 @@ public class WalletController {
         return deleted ?
                 ResponseEntity.noContent().build() :
                 ResponseEntity.notFound().build();
+    }
+
+    @PostMapping(path = "/{walletId}/deposits")
+    public ResponseEntity<Void> depositMoney(@PathVariable UUID walletId,
+                                             @RequestBody @Valid DepositMoneyDto dto,
+                                             HttpServletRequest servletRequest){
+
+        this.walletService.depositMoney(
+                walletId,
+                dto,
+                servletRequest.getAttribute("x-user-ip").toString()
+        );
+
+        return ResponseEntity.ok().build();
+
     }
 
 }
