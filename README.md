@@ -64,6 +64,10 @@ http://localhost:8080
 
 ## Documentação
 
+### Sobre o sistema
+
+Pode ver mais sobre o sistema e como ele se propõe no arquivo [`fintech.md`](/docs/fintech.md).
+
 ### Rotas
 
 Todas as rotas dessa API podem ser encontradas no arquivo [routes.http](./docs/api/routes.http).
