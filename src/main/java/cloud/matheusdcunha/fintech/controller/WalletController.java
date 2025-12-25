@@ -2,6 +2,7 @@ package cloud.matheusdcunha.fintech.controller;
 
 import cloud.matheusdcunha.fintech.controller.dto.CreateWalletDto;
 import cloud.matheusdcunha.fintech.service.WalletService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ public class WalletController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createWallet(@RequestBody CreateWalletDto dto){
+    public ResponseEntity<Void> createWallet(@RequestBody @Valid CreateWalletDto dto){
 
         var wallet = this.walletService.createWallet(dto);
 
