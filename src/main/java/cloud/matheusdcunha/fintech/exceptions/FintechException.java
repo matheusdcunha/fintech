@@ -1,5 +1,6 @@
 package cloud.matheusdcunha.fintech.exceptions;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 
 import java.time.LocalDateTime;
@@ -25,7 +26,7 @@ public abstract class   FintechException extends RuntimeException{
     }
 
     public ProblemDetail toProblemDetail(){
-        var pd = ProblemDetail.forStatus(500);
+        var pd = ProblemDetail.forStatus(HttpStatus.INTERNAL_SERVER_ERROR);
         pd.setTitle("Fintech Internal Server Erro");
         pd.setDetail("Contact Fintech support");
         pd.setProperty("timestamp", LocalDateTime.now());

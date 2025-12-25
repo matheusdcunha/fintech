@@ -1,5 +1,4 @@
 ### Wallets
-
 POST http://localhost:8080/wallets
 Content-Type: application/json
 
@@ -9,3 +8,6 @@ Content-Type: application/json
   "name": "Matheus"
 }
 
+###
+@walletId = d9242f6b-bb48-4e0a-83da-c804b4f77a01
+DELETE http://localhost:8080/wallets/{{walletId}}

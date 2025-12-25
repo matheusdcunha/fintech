@@ -5,11 +5,11 @@ import org.springframework.http.ProblemDetail;
 
 import java.time.LocalDateTime;
 
-public class WalletDataAlreadyExistsException extends FintechException{
+public class DeleteWalletException extends FintechException{
 
     private final String detail;
 
-    public WalletDataAlreadyExistsException(String detail) {
+    public DeleteWalletException(String detail) {
         super(detail);
         this.detail = detail;
     }
@@ -18,7 +18,7 @@ public class WalletDataAlreadyExistsException extends FintechException{
     public ProblemDetail toProblemDetail() {
         var pd = ProblemDetail.forStatus(HttpStatus.UNPROCESSABLE_ENTITY);
 
-        pd.setTitle("Wallet data already exists");
+        pd.setTitle("You cannot delete this wallet");
         pd.setDetail(this.detail);
         pd.setProperty("timestamp", LocalDateTime.now());
 
