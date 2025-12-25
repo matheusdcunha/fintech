@@ -1,0 +1,11 @@
+### Wallets
+
+POST http://localhost:8080/wallets
+Content-Type: application/json
+
+{
+  "cpf": "11231231721",
+  "email": "matheus@email.com",
+  "name": "Matheus"
+}
+
