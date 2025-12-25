@@ -1,9 +1,23 @@
 package cloud.matheusdcunha.fintech.exceptions;
 
+import org.springframework.http.ProblemDetail;
 
 public class WalletDataAlreadyExistsException extends FintechException{
 
-    public WalletDataAlreadyExistsException(String message) {
-        super(message);
+    private final String detail;
+
+    public WalletDataAlreadyExistsException(String detail) {
+        super(detail);
+        this.detail = detail;
+    }
+
+    @Override
+    public ProblemDetail toProblemDetail() {
+        var pd = ProblemDetail.forStatus(422);
+
+        pd.setTitle("Wallet data already exists");
+        pd.setDetail(this.detail);
+
+        return pd;
     }
 }
