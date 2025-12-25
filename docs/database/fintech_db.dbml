@@ -1,0 +1,23 @@
+Table tb_wallets{
+  wallet_id uuid [primary key]
+  name varchar(255)
+  cpf varchar(255) unique
+  email varchar(255) unique
+  balance decimal(38, 2)
+}
+
+Table tb_deposits{
+  deposit_id uuid [primary key]
+  wallet_id uuid [ref: > tb_wallets.wallet_id, not null]
+  deposit_value decimal(38, 2)
+  ip_address varchar(255)
+  deposit_date_time datetime(6)
+}
+
+Table tb_transfers{
+  transfer_id uuid [primary key]
+  wallet_receiver_id uuid [ref: > tb_wallets.wallet_id]
+  wallet_sender_id uuid [ref: > tb_wallets.wallet_id]
+  transfer_value decimal(38, 2)
+  transfer_date_time datetime(6)
+}
