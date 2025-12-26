@@ -2,6 +2,7 @@ package cloud.matheusdcunha.fintech.controller;
 
 import cloud.matheusdcunha.fintech.controller.dto.CreateWalletDto;
 import cloud.matheusdcunha.fintech.controller.dto.DepositMoneyDto;
+import cloud.matheusdcunha.fintech.controller.dto.StatementDto;
 import cloud.matheusdcunha.fintech.service.WalletService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -53,6 +54,16 @@ public class WalletController {
 
         return ResponseEntity.ok().build();
 
+    }
+
+    @GetMapping(path = "/{walletId}/statement")
+    public ResponseEntity<StatementDto> getStatement(@PathVariable UUID walletId,
+                                                     @RequestParam(name = "page", defaultValue = "0") Integer page,
+                                                     @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize){
+
+        var statement = this.walletService.getStatements(walletId,page,pageSize);
+
+        return ResponseEntity.ok(statement);
     }
 
 }

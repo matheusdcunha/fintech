@@ -31,3 +31,9 @@ Content-Type: application/json
   "receiver": "0a806891-42db-4c45-bbb7-cff7c43f8e45",
   "value": "5"
 }
+
+###
+GET http://localhost:8080/wallets/{{walletId}}/statement?
+    page=0&
+    pageSize=100
+

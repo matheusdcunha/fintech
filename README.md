@@ -2,6 +2,8 @@
 
 Esse é um projeto educacional, para entender melhor exceções e validações no Spring Boot.
 
+O intuito é compreender mais a fundo sobre tratamento de exceções, a arquitetura do Spring Boot e validações. O projeto é uma fintech, podendo criar e deletar conta, fazer depósitos, transações e retirar extratos. Tudo isso respeitando conceitos de ACID.
+
 ## Tecnologias Utilizadas
 
 - **Java** `21`
